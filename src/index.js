@@ -123,7 +123,7 @@ app.delete('/todos/:id', checksExistsUserAccount, checkExistsTodo, (request, res
 
   user.todos.splice(todo, 1);
 
-  return response.status(200).json({ todos: user.todos }).send();
+  return response.status(204).send();
 });
 
 module.exports = app;
