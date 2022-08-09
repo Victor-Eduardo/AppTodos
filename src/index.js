@@ -66,7 +66,7 @@ app.get('/todos', checksExistsUserAccount, (request, response) => {
 
   const todos = user.todos;
 
-  return response.status(200).json({ todos: todos }).send();
+  return response.status(200).json(todos).send();
 });
 
 // Create a Todo
@@ -84,7 +84,7 @@ app.post('/todos', checksExistsUserAccount, (request, response) => {
 
   const todo = user.todos.find( (todo) => todo.title === title );
 
-  return response.status(201).json({ todo: todo }).send();
+  return response.status(201).json(todo).send();
 });
 
 // Update a Todo
@@ -101,7 +101,7 @@ app.put('/todos/:id', checksExistsUserAccount, checkExistsTodo, (request, respon
 
   const todo = user.todos.find( (todo) => todo.id === id );
 
-  return response.status(200).json({ todo: todo  }).send();
+  return response.status(200).json(todo).send();
 });
 
 // Flag Todo as done
@@ -112,7 +112,7 @@ app.patch('/todos/:id/done', checksExistsUserAccount, checkExistsTodo, (request,
 
   const todo = user.todos.find( (todo) => todo.id === id );
 
-  return response.status(200).json({ todo: todo }).send();
+  return response.status(200).json(todo).send();
 });
 
 // Delete a Todo
